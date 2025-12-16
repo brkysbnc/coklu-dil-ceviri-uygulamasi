@@ -1,5 +1,15 @@
 ## Çoklu Dil Çeviri Uygulaması (C# WinForms)
 
+### Öğrenci Bilgileri
+
+- **Ad Soyad**: Berkay Sabuncu  
+- **Fakülte**: Teknoloji Fakültesi  
+- **Bölüm**: Yazılım Mühendisliği  
+- **Sınıf / Şube**: II / A  
+- **Öğrenci Numarası**: 240542029  
+
+---
+
 Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaşılır bir **çoklu dil çeviri uygulamasıdır**. Uygulama, internet bağlantısı gerektirmeden (offline) örnek bir sözlük üzerinden metinleri farklı diller arasında çevirebilir.
 
 ### Özellikler
@@ -118,12 +128,3 @@ Uygulama üç farklı çeviri yöntemi destekler:
 - Eğitim veya portföy amaçlı kullanıma uygundur.  
 - İsterseniz projeyi fork edip kendi ihtiyaçlarınıza göre geliştirebilirsiniz.
 
----
-
-### Öğrenci Bilgileri
-
-- **Ad Soyad**: Berkay Sabuncu  
-- **Fakülte**: Teknoloji Fakültesi  
-- **Bölüm**: Yazılım Mühendisliği  
-- **Sınıf / Şube**: II / A  
-- **Öğrenci Numarası**: 240542029
