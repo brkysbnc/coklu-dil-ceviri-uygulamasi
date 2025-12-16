@@ -9,7 +9,6 @@ Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaş�
 - **Girdi metni alanı** ve **çeviri sonucu alanı**
 - **Çeviri yap** butonu ile hızlı sonuç
 - **Dilleri Değiştir** butonu (kaynak–hedef dillerini tek tıkla yer değiştir)
-- Yapılan çevirilerin **geçmiş listesi** (son yapılan çevirileri görme)
 - Tamamen **C# Windows Forms** ile yazılmıştır, internet bağlantısı gerektirmez (yerleşik örnek sözlük kullanır)
 
 ---
@@ -25,7 +24,11 @@ Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaş�
   - `MainForm.cs` – Ana formun C# kodu  
   - `MainForm.Designer.cs` – Formun tasarım kodu (otomatik oluşturulur, elle değiştirmemeye çalışın)  
   - `TranslationService.cs` – Örnek offline çeviri sözlüğünü ve çeviri mantığını içeren sınıf  
-  - `Properties/` – WinForms için otomatik oluşturulan ayarlar ve kaynak dosyaları  
+  - `MyMemoryTranslationService.cs` – Online çeviri servisi (API key gerektirmez)  
+  - `AzureTranslatorService.cs` – Azure Translator API entegrasyonu  
+  - `ITranslationService.cs` – Çeviri servisleri için arayüz  
+  - `AppSettings.cs` – Uygulama ayarları  
+  - `Data/OfflineDictionary.json` – JSON formatında offline sözlük dosyası  
 
 ---
 
@@ -42,23 +45,28 @@ Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaş�
 1. **Projeyi klonlayın veya indirin**
 
    ```bash
-   git clone <bu-repo-url>
-   cd "Çoklu dil çevirisi uygulaması"
+   git clone https://github.com/brkysbnc/coklu-dil-ceviri-uygulamasi.git
+   cd coklu-dil-ceviri-uygulamasi
    ```
 
 2. **Visual Studio ile açma (Önerilen)**
 
    - `MultiLangTranslator.sln` dosyasını Visual Studio ile açın.  
-   - Gerekirse .NET Desktop Development workload’un yüklü olduğundan emin olun.  
+   - Gerekirse .NET Desktop Development workload'un yüklü olduğundan emin olun.  
    - Üst menüden **Build > Build Solution** ile projeyi derleyin.  
    - Ardından **Start** (F5) ile uygulamayı çalıştırın.
 
 3. **.NET CLI ile çalıştırma (alternatif)**
 
    ```bash
-   cd "Çoklu dil çevirisi uygulaması\\MultiLangTranslator"
+   cd MultiLangTranslator
    dotnet run
    ```
+
+4. **.exe Oluşturma**
+
+   - Visual Studio'da **Build > Publish** seçeneğini kullanabilirsiniz.
+   - Veya Release modunda derleyip `bin\Release\net8.0-windows\MultiLangTranslator.exe` dosyasını kullanabilirsiniz.
 
 ---
 
@@ -68,10 +76,30 @@ Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaş�
 - **Hedef Dil** açılır kutusundan çevrilecek dili seçin.  
 - Üstteki metin kutusuna çevirmek istediğiniz cümleyi yazın.  
 - **Çevir** butonuna tıklayın, alt metin kutusunda çeviri sonucu görüntülenir.  
-- Yaptığınız her çeviri, sağdaki **Geçmiş** listesinin en üstüne eklenir.  
 - **Dilleri Değiştir** butonuna basarak kaynak ve hedef dilleri hızlıca yer değiştirebilirsiniz.
 
-> Not: Örnek olması için, uygulama içinde sınırlı sayıda hazır kelime/cümle içeren bir sözlük kullanılmıştır. Gerçek hayatta bu kısmı bir API (Google Translate, DeepL vb.) veya daha geniş bir veri seti ile değiştirebilirsiniz.
+> **Not**: Uygulama varsayılan olarak **MyMemory Translation API** (ücretsiz, API key gerektirmez) kullanarak online çeviri yapar. İsterseniz `AppSettings.cs` dosyasında Azure Translator ayarlarını yaparak Azure servisini de kullanabilirsiniz. Ayrıca offline mod için `Data/OfflineDictionary.json` dosyasına kelime/cümle ekleyebilirsiniz.
+
+---
+
+### Çeviri Servisleri
+
+Uygulama üç farklı çeviri yöntemi destekler:
+
+1. **MyMemory Translation API** (Varsayılan)
+   - API key gerektirmez
+   - Ücretsiz kullanım
+   - İnternet bağlantısı gerekir
+
+2. **Azure Translator API** (Opsiyonel)
+   - `AppSettings.cs` dosyasında API key, endpoint ve region bilgilerini doldurmanız gerekir
+   - Daha yüksek kaliteli çeviriler
+   - İnternet bağlantısı gerekir
+
+3. **Offline Sözlük** (Fallback)
+   - `Data/OfflineDictionary.json` dosyasından okunur
+   - İnternet bağlantısı gerektirmez
+   - Sınırlı kelime/cümle desteği
 
 ---
 
@@ -98,7 +126,4 @@ Bu proje, **C# ve Windows Forms** kullanılarak geliştirilmiş basit ve anlaş�
 - **Fakülte**: Teknoloji Fakültesi  
 - **Bölüm**: Yazılım Mühendisliği  
 - **Sınıf / Şube**: II / A  
-- **Öğrenci Numarası**: 240542029  
-
-
-
+- **Öğrenci Numarası**: 240542029
