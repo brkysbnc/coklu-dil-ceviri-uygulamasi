@@ -1,0 +1,46 @@
+[
+  {
+    "sourceLanguage": "Türkçe",
+    "targetLanguage": "İngilizce",
+    "sourceText": "merhaba",
+    "targetText": "hello"
+  },
+  {
+    "sourceLanguage": "Türkçe",
+    "targetLanguage": "İngilizce",
+    "sourceText": "günaydın",
+    "targetText": "good morning"
+  },
+  {
+    "sourceLanguage": "Türkçe",
+    "targetLanguage": "İngilizce",
+    "sourceText": "teşekkür ederim",
+    "targetText": "thank you"
+  },
+  {
+    "sourceLanguage": "Türkçe",
+    "targetLanguage": "İngilizce",
+    "sourceText": "nasılsın",
+    "targetText": "how are you"
+  },
+  {
+    "sourceLanguage": "İngilizce",
+    "targetLanguage": "Türkçe",
+    "sourceText": "good night",
+    "targetText": "iyi geceler"
+  },
+  {
+    "sourceLanguage": "İngilizce",
+    "targetLanguage": "Almanca",
+    "sourceText": "hello",
+    "targetText": "hallo"
+  },
+  {
+    "sourceLanguage": "İngilizce",
+    "targetLanguage": "Fransızca",
+    "sourceText": "hello",
+    "targetText": "bonjour"
+  }
+]
+
+

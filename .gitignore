@@ -1,0 +1,23 @@
+# Visual Studio dosyaları
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# Build sonuçları
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
+
+# NuGet
+*.nupkg
+packages/
+
+# Diğer
+*.log
+.DS_Store
+

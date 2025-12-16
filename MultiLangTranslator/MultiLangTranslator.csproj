@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <!--
+    Bu proje dosyası, .NET 8 kullanarak Windows Forms uygulaması oluşturmak için yapılandırılmıştır.
+    UseWindowsForms özelliği WinForms desteğini aktif eder.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>MultiLangTranslator</RootNamespace>
+    <AssemblyName>MultiLangTranslator</AssemblyName>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!--
+    Data klasöründeki JSON sözlük dosyasını build sırasında çıktı klasörüne kopyalıyoruz.
+    Böylece .exe ile birlikte aynı dizinde bulunur ve runtime'da okunabilir.
+  -->
+  <ItemGroup>
+    <None Include="Data\OfflineDictionary.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+
+
